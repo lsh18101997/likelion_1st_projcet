@@ -1,19 +1,29 @@
 # likelion_1st_projcet
 
-*데이터 소스 : bank customer data (from kaggle)*
-*분석 목표 : provide customized services by using clustering*
+<img src="https://img.shields.io/badge/Python-#3776AB?style=plastic&logo=python&logoColor=white"/>
+<img src="https://img.shields.io/badge/Pandas-#150458?style=plastic&logo=pandas&logoColor=white"/>
+<img src="https://img.shields.io/badge/Streamlit-#FF4B4B?style=plastic&logo=streamlit&logoColor=white"/>
+
+
+-*데이터 소스 : bank customer data (from kaggle)*
+-*분석 목표 : provide customized services by using clustering*
 _____________________________________________________________________________
 
 *대시보드 구성*
-1. 요인 별 고객 분포를 보여주는 그래프
-2. 이익 집단 / 불이익 집단 / 잠재 고객 별 요약 표
-3. 캠페인의 성공과 유의미한 상관관계를 가지는 요인
+1. 라벨 별 고객 분포를 보여주는 그래프 (완성)
+2. 전체 고객수 / 이익 집단 / 불이익 집단 고객수(완성)
+3. 라벨 별 캠페인의 성공과 실패 데이터 프레임 (완성)
 4. 클러스터링을 통한 고객 군집화 결과 => 맞춤 솔루션 제안
 
 _____________________________________________________________________________
 
+*대시보드 이미지*
+
+![Dashboard Image]('dashboardimg.JPG' "대시보드 이미지")
+_____________________________________________________________________________
+
 *데이터 셋 구성*
-The dataset consists of 17 columns, each representing the following attributes
+-The dataset consists of 17 columns, each representing the following attributes
 
 |   label   | data type |  설명                                              |
 | --------- | ----------| --------------------------------------------------- |
@@ -35,9 +45,9 @@ The dataset consists of 17 columns, each representing the following attributes
 | poutcome  | str       | 이전 마케팅 캠페인의 결과                             |
 | previous  | bool      | 정기예금 가입 여부                                   |
 
-data types
-Integer : 7
-String : 6
-Boolean : 4
+-data types
+-Integer : 7
+-String : 6
+-Boolean : 4
 
 _____________________________________________________________________________
