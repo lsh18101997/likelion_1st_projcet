@@ -1,11 +1,7 @@
 # likelion_1st_projcet
-
-
 <img src="https://img.shields.io/badge/Python-3776AB?style=plastic&logo=python&logoColor=white"/>
 <img src="https://img.shields.io/badge/Pandas-150458?style=plastic&logo=pandas&logoColor=white"/>
 <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=plastic&logo=streamlit&logoColor=white"/>
-
-
 
 -*데이터 소스 : bank customer data (from kaggle)*
 -*분석 목표 : provide customized services by using clustering*
