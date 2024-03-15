@@ -1,10 +1,10 @@
 # likelion_1st_projcet
 
-<div align="center">
+
 <img src="https://img.shields.io/badge/Python-3776AB?style=plastic&logo=python&logoColor=white"/>
 <img src="https://img.shields.io/badge/Pandas-150458?style=plastic&logo=pandas&logoColor=white"/>
 <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=plastic&logo=streamlit&logoColor=white"/>
-</div>
+
 
 
 -*데이터 소스 : bank customer data (from kaggle)*
