@@ -45,7 +45,7 @@ def stream_data(txt):
 
 # 홈 화면
 def home():
-    st.title("Project : Providing Optimal Customization Solutuins")
+    st.title("Project : Recommending Campaign Target Customer")
     st.divider()
 
     content = """본 프로젝트는 은행을 이용하는 고객들의 데이터를 분석하여, 은행에서 제공하는 캠페인의 성공 확률을 증가시키는 것을 목표로 합니다.
