@@ -1,0 +1,11 @@
+label,p-value,impact
+age,0.4728,no
+default,0.3641,no
+balance,0.0000,yes
+housing,0.0048,yes
+loan,0.0229,yes
+duration,0.4978,no
+campaign,0.0025,yes
+pdays,0.1142,no
+previous,0.0045,yes
+deposit,0.0018,yes
