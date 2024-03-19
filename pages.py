@@ -12,7 +12,7 @@ st.set_page_config(layout="wide")
 # 그래프를 그리기위해 문자열 행을 추가해주기
 @st.cache_data
 def load_data():
-    df = pd.read_csv("Bank Target Marketing Dataset.csv")
+    df = pd.read_csv("data/Bank Target Marketing Dataset.csv")
     df['age_str'] = df['age'].apply(lambda x : 'yonth' if x <= 40 else 'middle age' if x <= 60 else 'old age')
     df['balance_str'] = df['balance'].apply(lambda x : 'minus' if x <= 0 else '1~5000' if x <= 5000 else 'above 5000')
     df['day_str'] = df['day'].apply(lambda x : '1~10' if x <= 10 else '11~20' if x <= 20 else '21~30')
@@ -26,18 +26,21 @@ df = load_data()
 # 로지스틱 데이터
 @st.cache_data
 def load_logistic():
-    logi = pd.read_csv("logistic.csv")
+    logi = pd.read_csv("data/logistic.csv")
     return logi
 logi = load_logistic()
 
+# 로딩 함수
 def loader(num):
     with st.spinner('Wait for it...'):
         time.sleep(num)
 
+# 빈 공간 만들기 함수
 def empty_maker(num):
     for _ in range(num):
         st.markdown('####')
 
+# 타이핑 하듯이 데이터 보여주기 함수
 def stream_data(txt):
     for word in txt.split(" "):
         yield word + " "
@@ -63,11 +66,15 @@ def home():
 def dashboard():
     st.title("📊Bank Data Dashboard")
     st.divider()
+
     # col1 data
+    # 이익 그룹 수
     profitable = df.loc[df['default'] == 'no', ['balance_str']]
     profitable_num = len(profitable.loc[profitable['balance_str']=='above 5000', ['balance_str']])
+    # 이익 되지 않는 그룹 1
     non_profitable = df.loc[df['default'] == 'yes', ['loan']]
     non_profitable_num = len(non_profitable.loc[non_profitable['loan']=='yes',['loan']])
+    # 이익 되지 않는 그룹 2
     non_profitable2 = df.loc[df['age_str'] == 'old age', ['balance_str']]
     non_profitable_num2 = len(non_profitable2.loc[non_profitable2['balance_str']=='minus', ['balance_str']])
 
@@ -93,6 +100,7 @@ def dashboard():
     # container
     col1, col2, col3 = st.columns([0.2,0.5,0.3])
 
+    # col1 내용
     with col1:
         # 이익 그룹의 수
         st.subheader("A profitable group")
@@ -105,7 +113,7 @@ def dashboard():
         st.metric(label="Credit Default & Loan", value=non_profitable_num)
         st.metric(label="Old Age & Minus Balane", value=non_profitable_num2)
         
-
+    # co12내용
     with col2:
         cnt2 = 0
         col2.subheader("Distribution of customers according to label values")
@@ -120,7 +128,8 @@ def dashboard():
                 fig.update_layout(width=400, height=400)
                 tab.plotly_chart(fig)
             cnt2 += 1
-        
+
+    # col3 내용   
     with col3:
         st.subheader("Total Customer")
         st.metric(label="Number of Total Customer", value=total_customer)
@@ -137,7 +146,7 @@ def dashboard():
                 four = two.loc[two['poutcome'] == 'failure'].groupby(f'{tab_name[cnt3]}_str').count()
                 result = pd.concat([three,four],axis=1)
                 result.columns = ['success', 'failure']
-                tab.dataframe(result,width=250)   
+                tab.dataframe(result,width=300)   
             elif tab_name[cnt3] == 'poutcome':
                 continue
             else:
@@ -146,11 +155,11 @@ def dashboard():
                 four = two.loc[two['poutcome'] == 'failure'].groupby(f'{tab_name[cnt3]}').count()
                 result = pd.concat([three,four],axis=1)
                 result.columns = ['success', 'failure']
-                tab.dataframe(result,width=250)
+                tab.dataframe(result,width=300)
             cnt3 += 1
 
 
-# 서비스 화면
+# 캠페인 타겟 추천 화면
 def service():
     st.title("💡Recommend Campaign Target")
     st.divider()
